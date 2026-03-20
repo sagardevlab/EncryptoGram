@@ -102,9 +102,6 @@ Example error (malformed JSON):
 }
 ```
 
-Notes
-- Endpoints were changed from `GET` to `POST` to follow HTTP semantics (bodies on POST). Update any clients accordingly.
-
 ## Example requests (curl)
 
 Start the app (default port 8080) and run:
@@ -148,28 +145,9 @@ curl -i -X POST http://localhost:8080/api/encrypt \
 
 - `src/main/resources/application.properties` contains:
   - `spring.application.name=encryption`
-  - H2 datasource settings for an in-memory DB (unused by current logic)
-
-## Suggested Improvements
-
-- Change endpoints to `POST` and add validation (e.g., non-null `text`).
-- Add controller-level exception handling and input validation.
-- Add OpenAPI/Swagger documentation for clarity and developer UX.
-- Add unit tests for `EncryptionService` (encrypt/decrypt and edge cases).
-- Remove unused JPA dependency if persistence is not needed, or add repository layer if it is.
-- Consider configuration for the shift value (externalize `SHIFT` into `application.properties` or a `@ConfigurationProperties`).
 
 ## Tests
 
 - `src/test/java/.../EncryptionApplicationTests.java` contains a single `contextLoads()` test. Run with `mvn test`.
 
-## License & Authors
-
-- No license is specified in the POM. Add a `LICENSE` file if you intend to open-source this project.
-- Project metadata fields in `pom.xml` (name, description, developers, license) are empty placeholders.
-
-## Contact / Next Steps
-
-- File created: [README.md](README.md)
-- Suggested next steps: change endpoints to `POST`, add service unit tests, and add README badges (build/test).
 
